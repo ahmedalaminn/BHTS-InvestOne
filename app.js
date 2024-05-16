@@ -29,13 +29,13 @@ app.post('/registration', async (req, res) => {
                 password: hashPassword,
             };
             users.push(newUser);
-            console.log('User added to database:', newUser);
-            console.log('Updated user list:', users);
-            res.send("<div align ='center'><h2>Registration successful</h2></div><br><br><div align='center'><a href='./login.html'>login</a></div><br><br><div align='center'><a href='./registration.html'>Register another user</a></div>");
-        } else {
-            console.log('Email already exists:', req.body.email);
-            res.send("<div align ='center'><h2>Email already used</h2></div><br><br><div align='center'><a href='./registration.html'>Register again</a></div>");
-        }
+            console.log('User list', users);
+            res.redirect('/login.html');
+            }
+        else {
+            console.log('Email is already in use:', req.body.email);
+            res.send("<div align ='center'><h2>Email is already in use.</h2></div><br><br><div align='center'><a href='./registration.html'>Register Again /a></div>");
+            }
     } catch(error) {
         console.error('Error during registration:', error);
         res.send("Internal server error");
@@ -50,17 +50,18 @@ app.post('/login', async (req, res) => {
             let submittedPass = req.body.password; 
             let storedPass = foundUser.password; 
             const passwordMatch = await bcrypt.compare(submittedPass, storedPass);
+
             if (passwordMatch) {
                 let name = foundUser.username;
-                console.log('Login successful for user:', name);
-                res.send(`<div align ='center'><h2>Login successful</h2></div><br><br><br><div align ='center'><h3>Hello ${name}</h3></div><br><br><div align='center'><a href='./login.html'>logout</a></div>`);
+                console.log(`User ${name} logged in successfully`);
+                res.redirect('/');
             } else {
                 console.log('Invalid email or password');
-                res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='./login.html'>login again</a></div>");
+                res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='./login.html'>Login Againn</a></div>");
             }
         } else {
             console.log('User not found:', req.body.email);
-            res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align='center'><a href='./login.html'>login again<a><div>");
+            res.send("<div align ='center'><h2>Invalid email or password.</h2></div><br><br><div align='center'><a href='./login.html'>Login Again<a><div>");
         }
     } catch(error) {
         console.error('Error during login:', error);
@@ -68,6 +69,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-server.listen(5501, () => {
-    console.log("Server is listening on port: 5501");
+server.listen(3000, () => {
+    console.log("Server is listening on port: 3000");
 });
