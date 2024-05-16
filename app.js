@@ -54,7 +54,7 @@ app.post('/login', async (req, res) => {
             if (passwordMatch) {
                 let name = foundUser.username;
                 console.log(`User ${name} logged in successfully`);
-                res.redirect('/');
+                res.redirect('/main.html');
             } else {
                 console.log('Invalid email or password');
                 res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='./login.html'>Login Againn</a></div>");
