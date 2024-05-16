@@ -1,3 +1,5 @@
+// LOGGING IN AND REGISTERING 
+
 const express = require('express');
 const http = require('http');
 const bcrypt = require('bcrypt');
@@ -72,3 +74,5 @@ app.post('/login', async (req, res) => {
 server.listen(3000, () => {
     console.log("Server is listening on port: 3000");
 });
+
+// PORTFOLIO 
