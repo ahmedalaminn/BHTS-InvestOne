@@ -1,16 +1,17 @@
+// stock portfolio
 document.addEventListener("DOMContentLoaded", function() {
     const stockList = document.querySelector('.stock-list');
     const searchButton = document.getElementById('searchButton');
     const tickerInput = document.getElementById('tickerInput');
 
     searchButton.addEventListener('click', function() {
-        const ticker = tickerInput.value.trim().toUpperCase(); // Trim whitespace and convert to uppercase
+        const ticker = tickerInput.value.trim().toUpperCase(); 
         if (!document.querySelector(`[data-symbol="${ticker}"]`)) {
             fetchStockData(ticker);
         } else {
-            alert('Ticker already exists.'); // Notify user if ticker already exists
+            alert('Ticker already exists.'); 
         }
-        tickerInput.value = ''; // Clear the input field after search
+        tickerInput.value = ''; 
     });
     
 
@@ -52,3 +53,40 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// real estate portfolio
+let properties = [];
+
+function displayProperties() {
+    const portfolioDiv = document.getElementById('portfolio');
+    portfolioDiv.innerHTML = '';
+    properties.forEach((property, index) => {
+        const propertyDiv = document.createElement('div');
+        propertyDiv.classList.add('property');
+        propertyDiv.innerHTML = `
+            <h2>${property.address}</h2>
+            <p><strong>Purchase Price:</strong> $${property.purchasePrice}</p>
+            <p><strong>Current Market Value:</strong> $${property.currentMarketValue}</p>
+            <p><strong>Profit/Loss:</strong> $${property.currentMarketValue - property.purchasePrice}</p>
+            <button onclick="removeProperty(${index})">Remove</button>
+        `;
+        portfolioDiv.appendChild(propertyDiv);
+    });
+}
+
+function addProperty(event) {
+    event.preventDefault();
+    const address = document.getElementById('address').value;
+    const purchasePrice = parseFloat(document.getElementById('purchasePrice').value);
+    const currentMarketValue = parseFloat(document.getElementById('currentMarketValue').value);
+    properties.push({ address, purchasePrice, currentMarketValue });
+    displayProperties();
+    document.getElementById('propertyForm').reset();
+}
+
+function removeProperty(index) {
+    properties.splice(index, 1);
+    displayProperties();
+}
+
+document.getElementById('propertyForm').addEventListener('submit', addProperty);

@@ -94,7 +94,8 @@
     <img src="img/stocks.png" height = 300, width = 300>
     <br>
     <span><h5><i class="fi-xnsuxl-star-solid"></i> Stocks</h5></span>
-    
+
+    <h2>Add Stock</h2> 
     <div class="container">
       <div class="search-container">
           <input type="text" id="tickerInput" placeholder="Enter ticker symbol">
@@ -103,81 +104,31 @@
       <div class="stock-list">
       </div>
     </div>
-
+    <br> <br>
 
       <!--Item 2-->
       <div id="COD" class="col-md-12 p-4">
       <img src="img/6074960.webp" height = 300, width = 300>
-    <br>  
-
-      <!--Content-->
+      <br>  
       <span><h5><i class="fi-xnsuxl-star-solid"></i> Real Estate</h5></span>
-      <p>$30</p>
-        <!-- asking how much the audience would like to invest -->
-        <form action="/action_page.php">
-          <label for="investment"> How much would you like to invest:</label><br><br>
-          <input type="number" id="quantity" name="amount" placeholder="123" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
-          <input type="submit">
-        </form>
-      </div>
 
-      <!--Item 3-->
-    <div  id="NBA" class="col-md-12 p-4">
-    <img src="img/certificates of deposits.jpg" height = 300, width = 300>
-    <br>
-
-    <!--Content-->
-    <span><h5><i class="fi-xnsuxl-star-solid"></i> Certificates of Deposits</h5></span>
-    <p>$59</p>
-      <!-- asking how much the audience would like to invest -->
-      <form action="/action_page.php">
-        <label for="investment"> How much would you like to invest:</label><br><br>
-        <input type="number" id="quantity" name="amount" placeholder="123" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
-        <input type="submit">
-      </form>
+      <div id="portfolio-container">
+        <div id="portfolio"></div>
     </div>
-
-    <!--Item 4-->
-      <div  id="GTA" class="col-md-12 p-4">
-      <img src="img/bonds.jpg" height = 300, width = 300>
-    <br>
-
-      <!--Content-->
-    <span><h5><i class="fi-xnsuxl-star-solid"></i> Bonds</h5></span>
-    <p>$30</p>
-        <!-- asking how much the audience would like to invest -->
-        <form action="/action_page.php">
-          <label for="investment"> How much would you like to invest:</label><br><br>
-          <input type="number" id="quantity" name="amount" placeholder="123" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
-          <input type="submit">
+    <div id="addPropertyForm">
+        <h2>Add Property</h2>
+        <form id="propertyForm">
+            <label for="address">Address:</label>
+            <input type="text" id="address" required><br>
+            <label for="purchasePrice">Purchase Price ($):</label>
+            <input type="number" id="purchasePrice" required><br>
+            <label for="currentMarketValue">Current Market Value ($):</label>
+            <input type="number" id="currentMarketValue" required><br>
+            <button type="submit">Add Property</button>
         </form>
-      </div>
-
-
-     <!--Item 5-->
-      <div  id="MN2" class="col-md-12 p-4">
-      <img src="img/funds.jpg" height = 300, width = 300>
-    <br>
-
-      <!--Content-->
-    <span><h5><i class="fi-xnsuxl-star-solid"></i>Mutual Funds</h5></span>
-    <p>$55</p>
-        <!-- asking how much the audience would like to invest -->
-        <form action="/action_page.php">
-          <label for="investment"> How much would you like to invest:</label><br><br>
-          <input type="number" id="quantity" name="amount" placeholder="123" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
-          <input type="submit">
-        </form>
-      </div>
     </div>
-
+    <br> <br>
 </div>
-    </div>
-</div>
-
-
-</section>
-<!--End of Games-->
 
 <!-- Services Section -->
 <section class="services">
@@ -353,4 +304,17 @@
       <script src='script.js'></script>
     <script src = "../app.js"> </script>
   </body>
+
+  <script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "6WibDC_LdEr7LBEeQKGDy",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="6WibDC_LdEr7LBEeQKGDy"
+    domain="www.chatbase.co"
+    defer>
+    </script>
 </html>
