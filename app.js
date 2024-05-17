@@ -59,7 +59,7 @@ app.post('/login', async (req, res) => {
                 res.redirect('/main.html');
             } else {
                 console.log('Invalid email or password');
-                res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='./login.html'>Login Againn</a></div>");
+                res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='./login.html'>Login Again</a></div>");
             }
         } else {
             console.log('User not found:', req.body.email);
