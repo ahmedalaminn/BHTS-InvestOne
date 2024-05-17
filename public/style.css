@@ -26,20 +26,26 @@ body{
   margin-bottom: 20px;
 
   }
-  table{
-    width: 80%;
-    border-collapse: collapse;
-    margin-top: 20px; 
-  }
-  th, td{
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-  }
-  th {
-    background-color: #f2f2f2;
-  }
-  tfoot td{
-    font-weight: bold;
-  }
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.stock-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.stock-info {
+    flex: 0 0 auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    background: #f9f9f9;
+    min-width: 200px;
+}
   
